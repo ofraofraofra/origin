@@ -141,6 +141,10 @@ public:
 
 	bool check() override
 	{
+		if (!Triangle::get_sides_count())
+		{
+			return false;
+		}
 		return this->get_C() == 90;
 	}
 };
@@ -181,6 +185,10 @@ public:
 
 	bool check() override
 	{
+		if (!Triangle::get_sides_count())
+		{
+			return false;
+		}
 		return ((this->get_a() == this->get_c()) && (this->get_A() == this->get_C()));
 	}
 
@@ -222,6 +230,10 @@ public:
 
 	bool check() override
 	{
+		if (!Triangle::get_sides_count())
+		{
+			return false;
+		}
 		return (this->get_a() == this->get_b() && this->get_a() == this->get_c() && this->get_A() == 60 && this->get_B() == 60 && this->get_C() == 60 );
 	}
 
@@ -326,6 +338,10 @@ public:
 
 	bool check() override
 	{
+		if (!Quadrangle::get_sides_count())
+		{
+			return false;
+		}
 		return (this->get_a() == this->get_c() && this->get_b() == this->get_d()
 			&& this->get_A() == this->get_C() && this->get_B() == this->get_D());
 		
@@ -375,6 +391,10 @@ public:
 
 	bool check() override
 	{
+		if (!Parallelogram::get_sides_count())
+		{
+			return false;
+		}
 		return (this->get_a() == this->get_b() && this->get_b() == this->get_c() && this->get_c() == this->get_d() && this->get_d() == this->get_a()
 			&& this->get_A() == this->get_C() && this->get_B() == this->get_D() );
 	}
@@ -421,6 +441,10 @@ public:
 
 	bool check() override
 	{
+		if (!Parallelogram::get_sides_count())
+		{
+			return false;
+		}
 		return ( (this->get_a() == this->get_c()) && (this->get_b() == this->get_d()) 
 			&& this->get_A() == 90 && this->get_B() == 90 && this->get_C() == 90 && this->get_D() == 90);
 	}
@@ -467,6 +491,10 @@ public:
 
 	bool check() override
 	{
+		if (!Rectangle::get_sides_count())
+		{
+			return false;
+		}
 		return (this->get_a() == this->get_b() && this->get_b() == this->get_c() && this->get_c() == this->get_d() && this->get_d() == this->get_a()
 			&& this->get_A() == 90 && this->get_B() == 90 && this->get_C() == 90 && this->get_D() == 90);
 	}

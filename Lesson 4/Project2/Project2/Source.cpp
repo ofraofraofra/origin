@@ -26,6 +26,13 @@ public:
 		return name;
 	}
 
+	virtual void print_info()
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Количество сторон: " << get_sides_count() << std::endl << std::endl;
+	}
+
+
 };
 
 
@@ -61,6 +68,14 @@ public:
 	int get_B() { return B; }
 	int get_C() { return C; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << std::endl << std::endl;
+
+	}
+
 };
 
 
@@ -84,6 +99,13 @@ public:
 	int get_B() { return B; }
 	int get_C() { return C; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << std::endl << std::endl;
+	}
+
 };
 
 class Is_triangle : public Triangle
@@ -105,6 +127,13 @@ public:
 	int get_B() { return B; }
 	int get_C() { return A; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << std::endl << std::endl;
+	}
+
 };
 
 class Eq_triangle : public Triangle
@@ -125,6 +154,14 @@ public:
 	int get_A() { return A; }
 	int get_B() { return A; }
 	int get_C() { return A; }
+
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << std::endl << std::endl;
+
+	}
 
 };
 
@@ -164,6 +201,13 @@ public:
 	int get_C() { return C; }
 	int get_D() { return D; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << " d = " << this->get_d() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << " D = " << this->get_D() << std::endl << std::endl;
+	}
+
 };
 
 
@@ -189,6 +233,13 @@ public:
 	int get_B() { return B; }
 	int get_C() { return C; }
 	int get_D() { return D; }
+
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << " d = " << this->get_d() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << " D = " << this->get_D() << std::endl << std::endl;
+	}
 
 };
 
@@ -216,6 +267,13 @@ public:
 	int get_C() { return C; }
 	int get_D() { return D; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << " d = " << this->get_d() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << " D = " << this->get_D() << std::endl << std::endl;
+	}
+
 };
 
 class Rectangle : public Parallelogram
@@ -240,6 +298,13 @@ public:
 	int get_B() { return B; }
 	int get_C() { return C; }
 	int get_D() { return D; }
+
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << " d = " << this->get_d() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << " D = " << this->get_D() << std::endl << std::endl;
+	}
 
 };
 
@@ -266,86 +331,57 @@ public:
 	int get_C() { return C; }
 	int get_D() { return D; }
 
+	void print_info() override
+	{
+		std::cout << this->get_name() << ": " << std::endl;
+		std::cout << "Стороны: a = " << this->get_a() << " b = " << this->get_b() << " c = " << this->get_c() << " d = " << this->get_d() << std::endl;
+		std::cout << "Углы: A = " << this->get_A() << " B = " << this->get_B() << " C = " << this->get_C() << " D = " << this->get_D() << std::endl << std::endl;
+	}
+
 };
 
-void print_info(Triangle* ptr_t)
+void print_info(Figure* ptr_f)
 {
-	std::cout << ptr_t->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_t->get_a() << " b = " << ptr_t->get_b() << " c = " << ptr_t->get_c() << std::endl;
-	std::cout << "Углы: A = " << ptr_t->get_A() << " B = " << ptr_t->get_B() << " C = " << ptr_t->get_C() << std::endl << std::endl;
+	ptr_f->print_info();
 }
-void print_info(Rec_triangle* ptr_rec)
-{
-	std::cout << ptr_rec->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_rec->get_a() << " b = " << ptr_rec->get_b() << " c = " << ptr_rec->get_c() << std::endl;
-	std::cout << "Углы: A = " << ptr_rec->get_A() << " B = " << ptr_rec->get_B() << " C = " << ptr_rec->get_C() << std::endl << std::endl;
-}
-void print_info(Is_triangle* ptr_is)
-{
-	std::cout << ptr_is->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_is->get_a() << " b = " << ptr_is->get_b() << " c = " << ptr_is->get_c() << std::endl;
-	std::cout << "Углы: A = " << ptr_is->get_A() << " B = " << ptr_is->get_B() << " C = " << ptr_is->get_C() << std::endl << std::endl;
-}
-void print_info(Eq_triangle* ptr_eq)
-{
-	std::cout << ptr_eq->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_eq->get_a() << " b = " << ptr_eq->get_b() << " c = " << ptr_eq->get_c() << std::endl;
-	std::cout << "Углы: A = " << ptr_eq->get_A() << " B = " << ptr_eq->get_B() << " C = " << ptr_eq->get_C() << std::endl << std::endl;
-}
-void print_info(Quadrangle* ptr_q)
-{
-	std::cout << ptr_q->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_q->get_a() << " b = " << ptr_q->get_b() << " c = " << ptr_q->get_c() << " d = " << ptr_q->get_d() << std::endl;
-	std::cout << "Углы: A = " << ptr_q->get_A() << " B = " << ptr_q->get_B() << " C = " << ptr_q->get_C() << " D = " << ptr_q->get_D() << std::endl << std::endl;
-}
-void print_info(Rectangle* ptr_rec)
-{
-	std::cout << ptr_rec->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_rec->get_a() << " b = " << ptr_rec->get_b() << " c = " << ptr_rec->get_c() << " d = " << ptr_rec->get_d() << std::endl;
-	std::cout << "Углы: A = " << ptr_rec->get_A() << " B = " << ptr_rec->get_B() << " C = " << ptr_rec->get_C() << " D = " << ptr_rec->get_D() << std::endl << std::endl;
-}
-void print_info(Square* ptr_sq)
-{
-	std::cout << ptr_sq->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_sq->get_a() << " b = " << ptr_sq->get_b() << " c = " << ptr_sq->get_c() << " d = " << ptr_sq->get_d() << std::endl;
-	std::cout << "Углы: A = " << ptr_sq->get_A() << " B = " << ptr_sq->get_B() << " C = " << ptr_sq->get_C() << " D = " << ptr_sq->get_D() << std::endl << std::endl;
-}
-void print_info(Parallelogram* ptr_p)
-{
-	std::cout << ptr_p->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_p->get_a() << " b = " << ptr_p->get_b() << " c = " << ptr_p->get_c() << " d = " << ptr_p->get_d() << std::endl;
-	std::cout << "Углы: A = " << ptr_p->get_A() << " B = " << ptr_p->get_B() << " C = " << ptr_p->get_C() << " D = " << ptr_p->get_D() << std::endl << std::endl;
-}
-void print_info(Rhombus* ptr_r)
-{
-	std::cout << ptr_r->get_name() << ": " << std::endl;
-	std::cout << "Стороны: a = " << ptr_r->get_a() << " b = " << ptr_r->get_b() << " c = " << ptr_r->get_c() << " d = " << ptr_r->get_d() << std::endl;
-	std::cout << "Углы: A = " << ptr_r->get_A() << " B = " << ptr_r->get_B() << " C = " << ptr_r->get_C() << " D = " << ptr_r->get_D() << std::endl << std::endl;
-}
-
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 
-	Triangle t (10, 20, 30, 50, 60, 70);
+	Triangle t(10, 20, 30, 50, 60, 70);
+	Figure* par_tri = &t;
 	print_info(&t);
+
 	Rec_triangle r(10, 20, 30, 50, 60);
+	Figure* par_r = &r;
 	print_info(&r);
+
 	Is_triangle i(10, 20, 50, 60);
+	Figure* par_is = &i;
 	print_info(&i);
+
 	Eq_triangle eq(30);
+	Figure* par_eq = &eq;
 	print_info(&eq);
-	Quadrangle q(10, 20, 30, 40, 50, 60, 70, 80);
+
+	Quadrangle q(10, 20, 30, 40, 90, 70, 120, 80);
+	Figure* par_q = &q;
 	print_info(&q);
-	Rectangle rec(10,20);
+
+	Rectangle rec(10, 20);
+	Figure* par_rec = &rec;
 	print_info(&rec);
-	Square sq(20);
-	print_info(&sq);
-	Parallelogram par(20, 30, 30, 40);
-	print_info(&par);
+
 	Rhombus rom(30, 30, 40);
+	Figure* par_rom = &rom;
 	print_info(&rom);
 
+	Square sq(20);
+	Figure* par_sq = &sq;
+	print_info(&sq);
 
+	Parallelogram par(20, 30, 30, 40);
+	Figure* par_par = &par;
+	print_info(&par);
 }
