@@ -2,19 +2,15 @@
 
 #define MODE 1
 
-#if defined(MODE)
-
-#if MODE == 0
+#if !defined MODE
 #error "Необходимо определить MODE"
 #endif
 
-#else
-#error "Необходимо определить MODE"
-#endif
-
+#if MODE == 1
 void add(int a, int b) {
     std::cout << "Результат сложения: " << a + b << std::endl;
 }
+#endif
 
 int main() {
 
