@@ -1,5 +1,0 @@
-﻿  Leaver.cpp
-C:\Users\ofrao\Desktop\origin\Lesson 10\StatisClass\DynamicClass\Leaver.cpp(4,51): warning C4273: Leaver::leav: несовместимое связывание dll
-C:\Users\ofrao\Desktop\origin\Lesson 10\StatisClass\DynamicClass\Leaver.h(14,29): message : см. предыдущее определение "leav"
-     Создается библиотека C:\Users\ofrao\Desktop\origin\Lesson 10\StatisClass\Debug\DynamicClass.lib и объект C:\Users\ofrao\Desktop\origin\Lesson 10\StatisClass\Debug\DynamicClass.exp
-  DynamicClass.vcxproj -> C:\Users\ofrao\Desktop\origin\Lesson 10\StatisClass\Debug\DynamicClass.dll
