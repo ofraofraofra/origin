@@ -1,0 +1,4 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\ofrao\Desktop\origin\Курсовая 2\Project2\Project2\Vehicle.h(13,18): warning C4251: Vehicle::name: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Vehicle"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstring(4871): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  ConsoleApplication1.vcxproj -> C:\Users\ofrao\Desktop\origin\Курсовая 2\Project2\Debug\ConsoleApplication1.exe
