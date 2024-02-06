@@ -5,7 +5,7 @@ Centaur::Centaur() : GroundVehicle("Кентавр", 15) {}
     double Centaur::getRestDuration() const { return 8; } // время отдыха
     int Centaur::calculateRestCount(double timeToRest, double distance) const { // количество отдыхов
         return int((
-            (distance / speed) / getRestDuration())
+            ((distance / speed) - 0.01) / getRestDuration())
             );
     }
     double Centaur::getTotalRestDuration(int restCount) const { // общее время отдыха

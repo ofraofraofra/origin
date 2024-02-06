@@ -73,6 +73,7 @@ int main() {
         cout << "Должно быть зарегистрировано хотя бы 2 транспортных средства" << endl;
 
         while (true) {
+
             while (true) {
                 cout << "Тип гонки: " << raceTypeName << endl;
                 cout << "Текущая дистанция: " << distance << " км" << endl;
@@ -81,81 +82,93 @@ int main() {
                 for (const auto& vehicle : vehicles) {
                     cout << vehicle->getName() << endl;
                 }
-
                 int action;
                 cout << "Выберите действие: " << endl;
                 cout << "1. Зарегистрировать транспорт" << endl;
                 cout << "2. Начать гонку" << endl;
                 cin >> action;
+                
+                    if (action == 1) {
+                        while (true) {
+                            string vehiclesMenu[] = { "Верблюд", "Верблюд-быстроход", "Кентавр", "Ботинки-вездеходы", "Ковёр-самолёт", "Орёл", "Метла" };
+                            
+                            cout << "Зарегистрированные транспортные средства:" << endl;
 
-                if (action == 1) {
-                    string vehiclesMenu[] = { "Верблюд", "Верблюд-быстроход", "Кентавр", "Ботинки-вездеходы", "Ковёр-самолёт", "Орёл", "Метла" };
-                    cout << "Список доступных транспортных средств:" << endl;
-                    for (int i = 0; i < 7; ++i) {
-                        cout << i + 1 << ". " << vehiclesMenu[i] << endl;
-                    }
-                    cout << "0. Закончить регистрацию" << endl;
-                    cout << "Выберите транспорт для регистрации: ";
+                            for (const auto& vehicle : vehicles) {
+                                cout << vehicle->getName() << endl;
+                            }
 
-                    int vehicleChoice;
-                    cin >> vehicleChoice;
+                            cout << "Список доступных транспортных средств:" << endl;
+                            for (int i = 0; i < 7; ++i) {
+                                cout << i + 1 << ". " << vehiclesMenu[i] << endl;
+                            }
+                            cout << "0. Закончить регистрацию" << endl;
+                            cout << "Выберите транспорт для регистрации: ";
 
-                    if (vehicleChoice < 0 || vehicleChoice > 7) {
-                        cout << "Неверный выбор. Пожалуйста, введите число от 0 до 7." << endl;
-                        continue;
-                    }
+                            int vehicleChoice;
+                            cin >> vehicleChoice;
 
-                    if (vehicleChoice == 0) {
-                        cout << "Регистрация завершена." << endl;
-                        continue;
-                    }
+                            if (vehicleChoice < 0 || vehicleChoice > 7) {
+                                cout << "Неверный выбор. Пожалуйста, введите число от 0 до 7." << endl;
+                                continue;
+                            }
 
-                    if ((raceType == 1 && (vehicleChoice > 4)) ||
-                        (raceType == 2 && (vehicleChoice <= 4))) {
-                        cout << "Ошибка: выбранное ТС не соответствует типу гонки." << endl;
-                        continue;
-                    }
+                            if (vehicleChoice == 0) {
+                                cout << "Регистрация завершена." << endl;
+                                break;
+                            }
 
-                    bool alreadyRegistered = false;
-                    for (const auto& vehicle : vehicles) {
-                        if (vehicle->getName() == vehiclesMenu[vehicleChoice - 1]) {
-                            alreadyRegistered = true;
-                            break;
+                            if ((raceType == 1 && (vehicleChoice > 4)) ||
+                                (raceType == 2 && (vehicleChoice <= 4))) {
+                                cout << "Ошибка: выбранное ТС не соответствует типу гонки." << endl;
+                                continue;
+                            }
+
+                            bool alreadyRegistered = false;
+                            for (const auto& vehicle : vehicles) {
+                                if (vehicle->getName() == vehiclesMenu[vehicleChoice - 1]) {
+                                    alreadyRegistered = true;
+                                    break;
+                                }
+                            }
+
+                            if (alreadyRegistered) {
+                                cout << "Ошибка: Транспорт уже зарегистрирован." << endl;
+                                continue;
+                            }
+
+                            switch (vehicleChoice) {
+                            case 1:
+                                vehicles.push_back(new Camel());
+                                break;
+                            case 2:
+                                vehicles.push_back(new FastCamel());
+                                break;
+                            case 3:
+                                vehicles.push_back(new Centaur());
+                                break;
+                            case 4:
+                                vehicles.push_back(new OffroadBoots());
+                                break;
+                            case 5:
+                                vehicles.push_back(new MagicCarpet());
+                                break;
+                            case 6:
+                                vehicles.push_back(new Eagle());
+                                break;
+                            case 7:
+                                vehicles.push_back(new Broomstick());
+                                break;
+                            default:
+                                break;
+                            }
+                            cout << vehiclesMenu[vehicleChoice - 1] << " успешно зарегистрирован!" << endl;
                         }
+                        
                     }
 
-                    if (alreadyRegistered) {
-                        cout << "Ошибка: Транспорт уже зарегистрирован." << endl;
-                        continue;
-                    }
-
-                    switch (vehicleChoice) {
-                    case 1:
-                        vehicles.push_back(new Camel());
-                        break;
-                    case 2:
-                        vehicles.push_back(new FastCamel());
-                        break;
-                    case 3:
-                        vehicles.push_back(new Centaur());
-                        break;
-                    case 4:
-                        vehicles.push_back(new OffroadBoots());
-                        break;
-                    case 5:
-                        vehicles.push_back(new MagicCarpet());
-                        break;
-                    case 6:
-                        vehicles.push_back(new Eagle());
-                        break;
-                    case 7:
-                        vehicles.push_back(new Broomstick());
-                        break;
-                    default:
-                        break;
-                    }
-                    cout << vehiclesMenu[vehicleChoice - 1] << " успешно зарегистрирован!" << endl;
-                }
+                
+            
                 else if (action == 2) {
                     if (vehicles.size() < 2) {
                         cout << "Ошибка: Для начала гонки необходимо зарегистрировать как минимум два транспортных средства." << endl;

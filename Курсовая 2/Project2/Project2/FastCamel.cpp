@@ -5,7 +5,7 @@ FastCamel::FastCamel() : GroundVehicle("Верблюд-быстроход", 40) {}
 double FastCamel::getRestDuration() const { return 10; } // время отдыха
 int FastCamel::calculateRestCount(double timeToRest, double distance) const { // количество отдыхов
     return int((
-        (distance / speed) / getRestDuration())
+        ((distance / speed) - 0.01) / getRestDuration())
         );
 }
 double FastCamel::getTotalRestDuration(int restCount) const { // общее время отдыха

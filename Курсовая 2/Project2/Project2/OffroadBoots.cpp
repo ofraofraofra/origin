@@ -5,7 +5,7 @@
     double OffroadBoots::getRestDuration() const { return 60; } // время отдыха
     int OffroadBoots::calculateRestCount(double timeToRest, double distance) const { // количество отдыхов
         return int((
-            (distance / speed) / getRestDuration())
+            ((distance / speed) - 0.01) / getRestDuration())
             );
     }
     double OffroadBoots::getTotalRestDuration(int restCount) const { // общее время отдыха
