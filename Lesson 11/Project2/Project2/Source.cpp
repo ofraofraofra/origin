@@ -43,14 +43,14 @@ public:
 
     void add_element(int element) {
         if (size >= capacity) {
-            int new_capacity = capacity * 2 * sizeof(int);
+            int new_capacity = capacity * 2;
             int* new_data = new int[new_capacity];
             for (int i = 0; i < size; ++i) {
                 new_data[i] = data[i];
             }
             delete[] data;
             data = new_data;
-            capacity = new_capacity / sizeof(int);
+            capacity = new_capacity;
         }
         data[size++] = element;
     }
