@@ -7,21 +7,31 @@ private:
     std::vector<int> digits;
 
 public:
-    //конструктор перемещения
-    big_integer(std::string&& num) {
+
+    big_integer(const std::string& num) { //обычный конструктор
         for (char c : num) {
             digits.push_back(c - '0');
         }
         std::reverse(digits.begin(), digits.end());
     }
 
-    //перемещающий оператор присваивания
-    big_integer& operator=(std::string&& num) {
+    big_integer& operator=(const std::string& num) { //обычный оператор
         digits.clear();
         for (char c : num) {
             digits.push_back(c - '0');
         }
         std::reverse(digits.begin(), digits.end());
+        return *this;
+    }
+
+    // Перемещающий конструктор
+    big_integer(big_integer&& num) noexcept : digits(std::move(num.digits)) {}
+
+    // Перемещающий оператор присваивания
+    big_integer& operator=(big_integer&& num) noexcept {
+        if (this != &num) {
+            digits = std::move(num.digits);
+        }
         return *this;
     }
 
