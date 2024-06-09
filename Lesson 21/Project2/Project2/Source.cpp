@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <chrono>
 
 class Publisher;
 class Book;
@@ -32,7 +33,7 @@ public:
     template<class Action>
     void persist(Action& a) {
         Wt::Dbo::field(a, title, "title");
-        Wt::Dbo::belongsTo(a, publisher, "id_publisher");
+        Wt::Dbo::belongsTo(a, publisher, "publisher");
         Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "book");
     }
 };
@@ -59,25 +60,26 @@ public:
     template<class Action>
     void persist(Action& a) {
         Wt::Dbo::field(a, count, "count");
-        Wt::Dbo::belongsTo(a, book, "id_book");
-        Wt::Dbo::belongsTo(a, shop, "id_shop");
+        Wt::Dbo::belongsTo(a, book, "book");
+        Wt::Dbo::belongsTo(a, shop, "shop");
         Wt::Dbo::hasMany(a, sales, Wt::Dbo::ManyToOne, "stock");
     }
 };
 
+
 class Sale {
 public:
     float price;
-    Wt::WDate dateSale;
+    std::chrono::system_clock::time_point dateSale; 
     int count;
     Wt::Dbo::ptr<Stock> stock;
 
     template<class Action>
     void persist(Action& a) {
         Wt::Dbo::field(a, price, "price");
-        Wt::Dbo::field(a, dateSale, "date_sale");
+        Wt::Dbo::field(a, dateSale, "date_sale"); 
         Wt::Dbo::field(a, count, "count");
-        Wt::Dbo::belongsTo(a, stock, "id_stock");
+        Wt::Dbo::belongsTo(a, stock, "stock");
     }
 };
 
@@ -121,19 +123,33 @@ void insertTestData(Wt::Dbo::Session& session) {
 void findShopsByPublisher(Wt::Dbo::Session& session, const std::string& publisherName) {
     Wt::Dbo::Transaction transaction(session);
 
-    Wt::Dbo::collection<Wt::Dbo::ptr<Shop>> shops = session.find<Shop>().where("id IN (SELECT id_shop FROM stock WHERE id_book IN (SELECT id FROM book WHERE id_publisher IN (SELECT id FROM publisher WHERE name = ?)))").bind(publisherName);
+    Wt::Dbo::ptr<Publisher> publisher = session.find<Publisher>().where("name = ?").bind(publisherName);
+
+    if (!publisher) {
+        std::cout << "Publisher not found.\n";
+        return;
+    }
+
+    std::set<std::string> shopNames;
+
+    for (const auto& book : publisher->books) {
+        for (const auto& stock : book->stocks) {
+            shopNames.insert(stock->shop->name);
+        }
+    }
 
     std::cout << "Shops selling books by publisher " << publisherName << ":\n";
-    for (const Wt::Dbo::ptr<Shop>& shop : shops) {
-        std::cout << shop->name << "\n";
+    for (const auto& shopName : shopNames) {
+        std::cout << shopName << "\n";
     }
 }
 
 int main() {
     try {
-        Wt::Dbo::backend::Postgres connection("host=localhost port=5432 dbname=lesson21 user=myuser password=mypass");
+       
+        std::unique_ptr<Wt::Dbo::backend::Postgres> connection(new Wt::Dbo::backend::Postgres("host=localhost port=5432 dbname=mydb user=myuser password=mypass"));
         Wt::Dbo::Session session;
-        session.setConnection(connection);
+        session.setConnection(std::move(connection));
 
         session.mapClass<Publisher>("publisher");
         session.mapClass<Book>("book");
@@ -154,5 +170,6 @@ int main() {
         std::cerr << "Error: " << e.what() << "\n";
         return 1;
     }
-	return 0;
+
+    return 0;
 }
