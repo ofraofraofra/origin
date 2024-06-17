@@ -36,7 +36,7 @@ void benchmark(int numElements, int numThreads) {
     std::chrono::duration<double> elapsed = end - start;
 
     std::lock_guard<std::mutex> lock(mtx);
-    std::cout << numThreads << " потоков " << elapsed.count() << "s" << std::endl;
+    std::cout << elapsed.count() << "s      ";
 }
 
 int main() {
@@ -47,14 +47,21 @@ int main() {
     int numElements[] = { 1000, 10000, 100000, 1000000 };
     int numThreads[] = { 1, 2, 4, 8, 16 };
 
-    std::cout << "Количество аппаратных ядер - " << std::thread::hardware_concurrency() << std::endl;
+    std::cout << "Кол-во аппаратных ядер - " << std::thread::hardware_concurrency() << std::endl;
 
-    for (int elements : numElements) {
-        std::cout << elements << std::endl;
-        for (int threads : numThreads) {
+    std::cout << "          1000            10000            100000             1000000" << std::endl;
+
+    for (int threads : numThreads) {
+        std::cout << threads << " потоков ";
+
+        for (int elements : numElements) {
             benchmark(elements, threads);
+
         }
+        std::cout << std::endl;
     }
 
     return 0;
 }
+
+
