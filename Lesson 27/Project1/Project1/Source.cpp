@@ -1,23 +1,25 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <memory>
 
 class Text {
 public:
     virtual void render(const std::string& data) const {
         std::cout << data;
     }
+    virtual ~Text() = default;
 };
 
 class DecoratedText : public Text {
 public:
-    explicit DecoratedText(Text* text) : text_(text) {}
-    Text* text_;
+    explicit DecoratedText(std::shared_ptr<Text> text) : text_(text) {}
+    std::shared_ptr<Text> text_;
 };
 
 class ItalicText : public DecoratedText {
 public:
-    explicit ItalicText(Text* text) : DecoratedText(text) {}
+    explicit ItalicText(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::cout << "<i>";
         text_->render(data);
@@ -27,7 +29,7 @@ public:
 
 class BoldText : public DecoratedText {
 public:
-    explicit BoldText(Text* text) : DecoratedText(text) {}
+    explicit BoldText(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::cout << "<b>";
         text_->render(data);
@@ -37,7 +39,7 @@ public:
 
 class Paragraph : public DecoratedText {
 public:
-    explicit Paragraph(Text* text) : DecoratedText(text) {}
+    explicit Paragraph(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::cout << "<p>";
         text_->render(data);
@@ -47,7 +49,7 @@ public:
 
 class Reversed : public DecoratedText {
 public:
-    explicit Reversed(Text* text) : DecoratedText(text) {}
+    explicit Reversed(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::string reversed_data = data;
         std::reverse(reversed_data.begin(), reversed_data.end());
@@ -57,27 +59,25 @@ public:
 
 class Link : public DecoratedText {
 public:
-    Link(Text* text) : DecoratedText(text) {}
+    explicit Link(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& url, const std::string& label) const {
         std::cout << "<a href=\"" << url << "\">" << label << "</a>";
     }
 };
 
 int main() {
-   
-    auto text_block1 = new Paragraph(new Text());
+
+    auto baseText = std::make_shared<Text>();
+
+    auto text_block1 = std::make_shared<Paragraph>(baseText);
     text_block1->render("Hello world");
     std::cout << std::endl;
 
-    auto text_block2 = new Reversed(new Text());
+    auto text_block2 = std::make_shared<Reversed>(baseText);
     text_block2->render("Hello world");
     std::cout << std::endl;
 
-    auto text_block3 = new Link(new Text());
+    auto text_block3 = std::make_shared<Link>(baseText);
     text_block3->render("netology.ru", "Hello world");
     std::cout << std::endl;
-
-    delete text_block1;
-    delete text_block2;
-    delete text_block3;
 }
