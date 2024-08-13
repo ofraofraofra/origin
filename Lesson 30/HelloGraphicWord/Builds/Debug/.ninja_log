@@ -1,0 +1,9 @@
+# ninja log v5
+3	2714	7452762971719589	HelloGraphicWord_autogen/timestamp	dc5b872470ba284d
+3	2714	7452762971719589	HelloGraphicWord_autogen/mocs_compilation.cpp	dc5b872470ba284d
+3	2714	7452762971719589	C:/Users/ofrao/Desktop/origin/Lesson 30/HelloGraphicWord/Builds/Debug/HelloGraphicWord_autogen/timestamp	dc5b872470ba284d
+3	2714	7452762971719589	C:/Users/ofrao/Desktop/origin/Lesson 30/HelloGraphicWord/Builds/Debug/HelloGraphicWord_autogen/mocs_compilation.cpp	dc5b872470ba284d
+2716	10806	7452763056831372	CMakeFiles/HelloGraphicWord.dir/HelloGraphicWord_autogen/mocs_compilation.cpp.obj	1c663f4210208144
+2726	11200	7452763060971334	CMakeFiles/HelloGraphicWord.dir/mainwindow.cpp.obj	fe298e0117356331
+2738	21692	7452763165909907	CMakeFiles/HelloGraphicWord.dir/main.cpp.obj	48de1313c177238a
+21704	22358	7452763172511543	HelloGraphicWord.exe	a71dd8b6524ec680

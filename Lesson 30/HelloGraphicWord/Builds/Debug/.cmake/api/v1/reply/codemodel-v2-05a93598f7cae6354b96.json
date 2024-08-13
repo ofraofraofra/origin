@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-3f6a03192d92b8e2d26c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "HelloGraphicWord",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HelloGraphicWord::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HelloGraphicWord-Debug-f8332e24811a00cbb6d7.json",
+					"name" : "HelloGraphicWord",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HelloGraphicWord_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HelloGraphicWord_autogen-Debug-2cccc63405cf999e6482.json",
+					"name" : "HelloGraphicWord_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HelloGraphicWord_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HelloGraphicWord_autogen_timestamp_deps-Debug-900b20a97082a0c659e9.json",
+					"name" : "HelloGraphicWord_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ofrao/Desktop/origin/Lesson 30/HelloGraphicWord/Builds/Debug",
+		"source" : "C:/Users/ofrao/Desktop/origin/Lesson 30/HelloGraphicWord"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
