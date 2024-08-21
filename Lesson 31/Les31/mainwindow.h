@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,11 +17,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void onOkClicked();
-    void onCancelClicked();
+
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
-
+    Dialog* dial; // для работы с окном диалога
 };
 #endif // MAINWINDOW_H
