@@ -1,9 +1,0 @@
-# ninja log v5
-1	1213	7279181877977386	CMakeFiles/my_first_cmake_program.dir/my_first_cmake_program.cpp.obj	46c6e9864cb19275
-1218	1810	7279181883814074	my_first_cmake_program.exe	7723ac04c24b9170
-1	644	7279182385224081	CMakeFiles/my_first_cmake_program.dir/my_first_cmake_program.cpp.obj	46c6e9864cb19275
-645	975	7279182387972518	my_first_cmake_program.exe	7723ac04c24b9170
-1	711	7279182663115092	CMakeFiles/my_first_cmake_program.dir/my_first_cmake_program.cpp.obj	46c6e9864cb19275
-712	1057	7279182666041091	my_first_cmake_program.exe	7723ac04c24b9170
-0	1080	7279183328208632	CMakeFiles/my_first_cmake_program.dir/my_first_cmake_program.cpp.obj	46c6e9864cb19275
-1086	1469	7279183331596699	my_first_cmake_program.exe	7723ac04c24b9170

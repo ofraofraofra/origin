@@ -1,3 +1,0 @@
-cmake_minimum_required(VERSION 3.20.0)
-project(my_second_cmake_project)
-add_executable(my_second_cmake_program Eq_triangle1.cpp Eq_triangle1.h Exeption.cpp Exeption.h Figure1.cpp Figure1.h Is_triangle1.cpp Is_triangle1.h Parallelogram1.cpp Parallelogram1.h Quadrangle1.cpp Quadrangle1.h Rec_triangle1.cpp Rec_triangle1.h Rectangle1.cpp Rectangle1.h Rhombus1.cpp Rhombus1.h Source.cpp Square1.cpp Square1.h Triangle.cpp Triangle.h)
