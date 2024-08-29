@@ -6,7 +6,7 @@ Stopwatch::Stopwatch(QObject *parent) : QObject(parent), m_elapsedTime(0), m_lap
 }
 
 void Stopwatch::start() {
-    m_timer->start(100); // Обновление каждые 0.1 секунды
+    m_timer->start(100);
 }
 
 void Stopwatch::stop() {

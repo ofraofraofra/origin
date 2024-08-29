@@ -5,7 +5,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_running(false),
-    m_lapCount(0)
+    m_lapCount(0),
+    m_lastLapTime(0)
+
 {
     ui->setupUi(this);
     this->setWindowTitle("Таймер");
@@ -37,19 +39,18 @@ void MainWindow::on_btnStartStop_clicked() {
 }
 
 void MainWindow::on_btnClear_clicked() {
-    m_stopwatch->stop();
     m_stopwatch->reset();
     ui->labelTime->setText("0.0 сек");
     ui->textBrowser->clear();
     m_lapCount = 0;
-    ui->btnStartStop->setText("Старт");
-    ui->btnLap->setEnabled(false);
-    m_running = false;
+    m_lastLapTime = 0;
 }
 
 void MainWindow::on_btnLap_clicked() {
     m_lapCount++;
-    double lapTime = m_stopwatch->elapsedTime();
+    double currentLapTime = m_stopwatch->elapsedTime();
+    double lapTime = currentLapTime - m_lastLapTime;
+    m_lastLapTime = currentLapTime;
     ui->textBrowser->append(QString("Круг %1, время: %2 сек").arg(m_lapCount).arg(lapTime));
 }
 

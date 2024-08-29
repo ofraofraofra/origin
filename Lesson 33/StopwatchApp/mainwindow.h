@@ -26,6 +26,7 @@ private:
     Stopwatch *m_stopwatch;
     bool m_running;
     int m_lapCount;
+    double m_lastLapTime;
 };
 
 #endif // MAINWINDOW_H
