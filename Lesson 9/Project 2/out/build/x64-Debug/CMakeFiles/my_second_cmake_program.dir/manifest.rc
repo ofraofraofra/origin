@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/ofrao/Desktop/origin/Lesson 9/Project 2/out/build/x64-Debug/CMakeFiles/my_second_cmake_program.dir/embed.manifest"

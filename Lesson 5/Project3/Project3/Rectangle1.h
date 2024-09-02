@@ -1,0 +1,31 @@
+#pragma once
+
+#include <string>
+#include <iostream>
+#include "Parallelogram1.h"
+
+class Rectangle : public Parallelogram
+{
+protected:
+
+public:
+
+	Rectangle(int a, int b);
+
+	std::string get_name();
+
+	int get_a();
+	int get_b();
+	int get_c();
+	int get_d();
+	int get_A();
+	int get_B();
+	int get_C();
+	int get_D();
+
+	void print_info() override;
+
+	bool check() override;
+
+};
+
