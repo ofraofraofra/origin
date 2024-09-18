@@ -1,0 +1,10 @@
+# ninja log v5
+3	2361	7470860616938380	Les31_autogen/timestamp	e668db825cb3d665
+3	2361	7470860616938380	Les31_autogen/mocs_compilation.cpp	e668db825cb3d665
+3	2361	7470860616938380	C:/Users/ofrao/Desktop/origin/Lesson 31/build-Les31-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Les31_autogen/timestamp	e668db825cb3d665
+3	2361	7470860616938380	C:/Users/ofrao/Desktop/origin/Lesson 31/build-Les31-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Les31_autogen/mocs_compilation.cpp	e668db825cb3d665
+2362	8037	7470860676657839	CMakeFiles/Les31.dir/Les31_autogen/mocs_compilation.cpp.obj	7b1643b915b9b761
+2373	8064	7470860677044148	CMakeFiles/Les31.dir/main.cpp.obj	9e45236d2b708a54
+2385	8516	7470860681565773	CMakeFiles/Les31.dir/mainwindow.cpp.obj	737723d080890e53
+2367	8726	7470860683742788	CMakeFiles/Les31.dir/dialog.cpp.obj	afc7726adc25ed04
+8727	9233	7470860688596279	Les31.exe	9fd24cf28ca8969
